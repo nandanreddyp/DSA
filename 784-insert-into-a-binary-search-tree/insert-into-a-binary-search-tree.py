@@ -10,7 +10,6 @@ class Solution:
         if not root:
             return TreeNode(val)
         while True:
-            
             if root.val > val:
                 if root.left:
                     root = root.left
