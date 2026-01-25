@@ -2,10 +2,9 @@ class Solution:
     def isValid(self, s: str) -> bool:
         stack = []; mapping = {'(':')','{':'}','[':']'}
         for i in s:
-            if i in mapping.keys():
+            if i in '({[':
                 stack.append(i)
             else:
-                opening = stack.pop() if stack else None
-                if not opening or i != mapping[opening]:
+                if not stack or i != mapping[stack.pop()]:
                     return False
-        return True if not stack else False
+        return not stack
